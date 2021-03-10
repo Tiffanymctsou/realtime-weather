@@ -43,7 +43,8 @@ const updateWeather = new CronJob('0 0 * * * *', async function() {
 }, null, true, 'Asia/Taipei');
 
 const getWeather = async (req, res) => {
-    
+    const auth = req.query.Authorization;
+    console.log(req.query);
 };
 
 
