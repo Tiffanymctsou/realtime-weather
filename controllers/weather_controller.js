@@ -5,6 +5,7 @@ const { API_KEY } = process.env;
 const uri = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001';
 const stations = '%E7%AB%B9%E5%AD%90%E6%B9%96,%E8%87%BA%E5%8C%97,%E9%9E%8D%E9%83%A8,%E6%9D%BF%E6%A9%8B,%E6%B7%A1%E6%B0%B4,%E6%96%B0%E5%B1%8B';
 const Weather = require('../models/weather_model');
+const Admin = require('../models/admin_model');
 
 // Update weather data in database
 const updateWeather = new CronJob('0 0 * * * *', async function() {
@@ -43,11 +44,20 @@ const updateWeather = new CronJob('0 0 * * * *', async function() {
 }, null, true, 'Asia/Taipei');
 
 const getWeather = async (req, res) => {
-    const auth = req.query.Authorization;
-    console.log(req.query);
+    const key = req.query.Authorization;
+    if (!key) {
+        res.status(401).send('API key required!');
+        return;
+    }
+    const result = await Admin.verifyKey(key);
+    if (result.length === 0) {
+        res.status(401).send('Invalid API key!');
+        return;
+    }
+    const { locationName, city, dist } = req.query;
+    const weatherInfo = await Weather.getWeather(locationName, city, dist);
+    res.status(200).send(weatherInfo);
 };
-
-
 
 module.exports = {
     getWeather

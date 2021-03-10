@@ -15,7 +15,8 @@ const generateAuth = async (req, res) => {
         key = key + chars[index];
     }
     const data = {
-        key: key
+        auth_key: key,
+        status: 1
     };
     const result = await Admin.generateAuth(data);
     if (result.error) {

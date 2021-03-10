@@ -9,16 +9,13 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-// CORS allow all
-// const corsOptions = {
-//     origin: [
-//         'http://www.example.com',
-//         'http://localhost:8080',
-//     ],
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-// };
-app.use(cors());
+// COR
+const corsOptions = {
+    origin: '*',
+    methods: 'GET,POST',
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+app.use(cors(corsOptions));
 
 
 // API routes
