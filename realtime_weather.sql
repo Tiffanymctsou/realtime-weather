@@ -77,27 +77,27 @@ DROP TABLE IF EXISTS `weather`;
 CREATE TABLE `weather` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT,
   `station_id` varchar(10) NOT NULL,
-  `height` decimal(6,2) NOT NULL,
-  `wind_direction` int(11) NOT NULL,
-  `wind_speed` decimal(4,2) NOT NULL,
-  `temp` decimal(3,1) NOT NULL,
-  `humidity` decimal(3,2) NOT NULL,
-  `pressure` decimal(7,2) NOT NULL,
-  `daily_rain` decimal(7,2) NOT NULL,
-  `wind_speed_max` decimal(4,2) NOT NULL,
-  `wind_direction_max` int(11) NOT NULL,
-  `max_wind_time` varchar(5) NOT NULL,
-  `wind_speed_max_10` decimal(4,2) NOT NULL,
-  `wind_direction_max_10` int(11) NOT NULL,
-  `max_wind_time_10` varchar(5) NOT NULL,
-  `UV_index` decimal(4,2) NOT NULL,
-  `max_temp` decimal(3,1) NOT NULL,
-  `max_temp_time` varchar(5) NOT NULL,
-  `min_temp` decimal(3,1) NOT NULL,
-  `min_temp_time` varchar(5) NOT NULL,
-  `total_sun_time` decimal(4,2) NOT NULL,
-  `visible_distance` varchar(10) NOT NULL,
-  `weather` varchar(15) NOT NULL,
+  `ELEV` decimal(6,2) NOT NULL,
+  `WDIR` int(11) NOT NULL,
+  `WDSD` decimal(4,2) NOT NULL,
+  `TEMP` decimal(3,1) NOT NULL,
+  `HUMD` decimal(3,2) NOT NULL,
+  `PRES` decimal(7,2) NOT NULL,
+  `24R` decimal(7,2) NOT NULL,
+  `H_FX` decimal(4,2) NOT NULL,
+  `H_XD` int(11) NOT NULL,
+  `H_FXT` varchar(5) NOT NULL,
+  `H_F10` decimal(4,2) NOT NULL,
+  `H_10D` int(11) NOT NULL,
+  `H_F10T` varchar(5) NOT NULL,
+  `H_UVI` decimal(4,2) NOT NULL,
+  `D_TX` decimal(3,1) NOT NULL,
+  `D_TXT` varchar(5) NOT NULL,
+  `D_TN` decimal(3,1) NOT NULL,
+  `D_TNT` varchar(5) NOT NULL,
+  `D_TS` decimal(4,2) NOT NULL,
+  `VIS` varchar(10) NOT NULL,
+  `Weather` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -108,7 +108,7 @@ CREATE TABLE `weather` (
 
 LOCK TABLES `weather` WRITE;
 /*!40000 ALTER TABLE `weather` DISABLE KEYS */;
-INSERT INTO `weather` VALUES (1,'466880',11.00,70,3.70,18.8,0.84,1019.90,0.00,14.50,70,'1744',5.40,80,'1730',-99.00,21.8,'1022',17.9,'0605',0.90,'21-30','晴'),(2,'466920',6.26,110,3.40,18.4,0.89,1018.00,0.00,11.30,110,'1723',5.00,110,'1743',0.01,21.3,'1319',17.5,'0620',0.20,'16-20','多雲'),(3,'467050',20.60,50,8.90,17.7,0.88,1017.50,0.00,17.00,40,'1711',11.30,50,'1701',0.01,20.8,'1045',17.0,'0509',8.90,'無觀測','晴'),(4,'466900',19.00,170,1.30,18.7,0.82,1018.90,0.00,3.60,290,'1749',1.20,280,'1756',0.01,22.9,'1146',17.5,'0349',2.80,'>30','多雲'),(5,'466910',832.60,170,6.30,12.4,1.00,-99.00,5.00,14.10,140,'1725',5.80,170,'1730',0.00,13.2,'1311',11.0,'0615',0.00,'<1','有霧'),(6,'466930',607.10,30,4.90,14.0,0.98,951.40,1.50,10.20,360,'1730',4.70,40,'1736',0.00,17.5,'1230',12.6,'0616',3.80,'>30','多雲');
+INSERT INTO `weather` VALUES (1,'466880',11.00,70,2.70,19.4,0.79,1018.50,0.00,11.40,70,'1617',5.90,70,'1618',-99.00,24.3,'1033',17.9,'0532',2.50,'16-20','多雲'),(2,'466920',6.26,100,4.00,18.9,0.86,1016.40,0.00,11.50,140,'1609',4.80,110,'1657',0.18,23.5,'1158',18.5,'0647',1.90,'16-20','陰'),(3,'467050',20.60,50,8.10,18.6,0.81,1016.30,0.00,17.00,40,'1639',11.50,50,'1642',0.18,21.8,'1357',15.5,'0100',4.50,'無觀測','多雲'),(4,'466900',19.00,20,1.30,19.3,0.77,1017.40,0.00,9.20,10,'1628',3.60,30,'1608',0.16,23.5,'1229',15.9,'0043',1.90,'21-30','陰'),(5,'466910',832.60,80,2.60,12.3,1.00,-99.00,0.00,9.70,100,'1614',3.40,70,'1635',0.07,19.7,'1130',12.2,'1730',3.70,'<1','有霧'),(6,'466930',607.10,30,5.70,14.0,0.97,949.70,0.00,14.10,40,'1636',6.20,30,'1621',0.11,19.5,'0924',14.0,'1742',2.90,'>30','陰');
 /*!40000 ALTER TABLE `weather` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -121,4 +121,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-10 19:11:42
+-- Dump completed on 2021-03-12 18:17:49
