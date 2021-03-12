@@ -20,7 +20,7 @@ Users, with valid authorization keys, can get weather information of the locatio
   #### Required Request
 
     // Authorization *requested from header
-    e.g. LRWI-1615369249594-JFO98
+    e.g. Bearer ***
     
     // locationName
     e.g. 板橋、新屋、淡水、臺北
@@ -33,7 +33,8 @@ Users, with valid authorization keys, can get weather information of the locatio
     
  #### Expected Response
 **Example endpoint** : `/realtimeWeather?locationName=臺北`
-**Example header** : `{ Authorization: 'JWT Token }`
+
+**Example header** : `{ Authorization: 'JWT Token' }`
 
     [
         {
