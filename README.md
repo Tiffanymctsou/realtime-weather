@@ -11,14 +11,15 @@ Allow users to generate keys which can be used as authorization in API url
  `/admin/auth` `POST`
  #### Expected Response
 
-     LRWI-1615369249594-JFO98
+    // JWT Token
+    Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNjE1NTQzMjcyNjI2LCJpYXQiOjE2MTU1NDMyNzIsImV4cCI6MTYxNTYyOTY3Mn0.rxfK2eoNu0wBJtsrjVPL1tKbcsmmXD0LYOpWjKRPIrY
 
 ### 🌤 Get Weather Info
 Users, with valid authorization keys, can get weather information of the location specified in the input url
- `/realtimeWeather?Authorization={key}&locationName={location}&city={city}&dist={dist}` `GET`
+ `/realtimeWeather?locationName={location}&city={city}&dist={dist}` `GET`
   #### Required Request
 
-    // Authorization *required
+    // Authorization *requested from header
     e.g. LRWI-1615369249594-JFO98
     
     // locationName
